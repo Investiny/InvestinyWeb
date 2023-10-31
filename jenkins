@@ -1,0 +1,37 @@
+node {
+    def mvnHome = tool 'maven-3.9.4'
+    def dockerImage
+    def dockerImageTag = "investiny${env.BUILD_NUMBER}"
+    
+    stage('Clone Repository - Web') {
+      git 'https://github.com/Investiny/InvestinyWeb.git'
+    }
+
+    stage('Build Project - Web') {
+      sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
+    }
+
+    stage('Clone Repository - Mobile') {
+      git 'https://github.com/Investiny/InvestinyMobile.git'
+    }
+
+    stage('Build Project - Mobile') {
+      sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
+    }
+    
+    stage('Initialize Docker'){         
+	  def dockerHome = tool 'MyDocker'         
+	  env.PATH = "${dockerHome}/bin:${env.PATH}"     
+    }
+    
+    stage('Build Docker Image') {
+      sh "docker -H tcp://192.168.163.100:2375 build -t ${dockerImageTag} ."
+    }
+    
+    stage('Deploy Docker Image'){
+      echo "Deleting Docker Container: ${dockerImageTag}"
+      sh "docker -H tcp://192.168.114.132:2375 rm -f ${dockerImageTag}"
+      echo "Docker Image Tag Name: ${dockerImageTag}"
+      sh "docker -H tcp://192.168.114.133:2375 run --name ${dockerImageTag} -d -p 2222:2222 ${dockerImageTag}"
+    }
+}
