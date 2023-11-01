@@ -1,0 +1,18 @@
+.user-profile {
+  text-align: center;
+}
+
+.user-profile img {
+  width: 150px;
+  height: 150px;
+}
+
+.user-posts img {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.user-posts img:hover {
+  opacity: 0.8;
+}
