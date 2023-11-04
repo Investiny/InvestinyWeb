@@ -3,28 +3,22 @@
     <div class="col-md-3">
       <div class="user-profile">
         <img src="/assets/images/product/profile.jpg" alt="Photo de profil" class="img-fluid rounded-circle">
-        <h3>Nom de l'utilisateur</h3>
-        <p>@nom_utilisateur</p>
+
       </div>
     </div>
-    <div class="col-md-9">
+    &nbsp;&nbsp;
+    <div class="col-md-4" style="margin-left: 100px;">
       <div class="user-posts">
         <div class="row">
-         <!--<div class="col-md-4 mb-4">
-            <img src="/assets/images/product/bag.PNG" alt="Post 1" class="img-fluid">
-          </div>
-          <div class="col-md-4 mb-4">
-            <img src="/assets/images/product/mag.PNG" alt="Post 2" class="img-fluid">
-          </div>
-          <div class="col-md-4 mb-4">
-            <img src="/assets/images/product/pc.PNG" alt="Post 3" class="img-fluid">
-          </div>
-        </div>-->
+          <h3>Nom de l'utilisateur</h3>
+          <p>@nom_utilisateur</p>
+          <button type="button" class="btn btn-success" [routerLink]="['/updateprofil']">Modifier mes infos</button>
+
       </div>
     </div>
   </div>
 </div>
-<ul class="list-group" style="width: 75%; margin: 0 auto;">
+<ul class="list-group" style="width: 75%; margin: 0 auto;margin-top: 100px;">
   <div class="row">
     <div class="col-md-4" *ngFor="let product of products">
       <li class="list-group-item">

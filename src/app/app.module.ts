@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CrudComponent } from './crud/crud.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { LanceprojectComponent } from './lanceproject/lanceproject.component';
+import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LanceprojectComponent } from './lanceproject/lanceproject.component';
     ProfileComponent,
     CrudComponent,
     AcceuilComponent,
-    LanceprojectComponent
+    LanceprojectComponent,
+    UpdateprofilComponent
   ],
   imports: [
     BrowserModule,

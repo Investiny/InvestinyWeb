@@ -1,1 +1,70 @@
-<p>lanceproject works!</p>
+<div class="container">
+  <h1>Lancer un projet</h1>
+  <form>
+
+    <div class="form-group">
+      <label for="titre">Titre du projet :</label>
+      <input type="text" class="form-control" id="titre" name="titre" >
+    </div>
+    <div class="form-group">
+      <label for="description">Description :</label>
+      <textarea class="form-control" id="description" name="description" ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="categorie">Catégorie :</label>
+      <input type="text" class="form-control" id="categorie" name="categorie" >
+    </div>
+    <div class="form-group">
+      <label for="montantCible">Montant cible :</label>
+      <input type="number" class="form-control" id="montantCible" name="montantCible" >
+    </div>
+    <div class="form-group">
+      <label for="dateDebut">Date de début :</label>
+      <input type="date" class="form-control" id="dateDebut" name="dateDebut" >
+    </div>
+    <div class="form-group">
+      <label for="dateFin">Date de fin :</label>
+      <input type="date" class="form-control" id="dateFin" name="dateFin" >
+    </div>
+    <br><br>
+    <div class="form-group">
+      <label for="image">Image du projet :</label>
+      <input type="file" class="form-control-file" id="image" name="image" >
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-primary" (click)="ajouterProjet()">Ajouter le projet</button>
+
+
+
+   <!-- <div class="form-group">
+      <label for="titre">Titre du projet :</label>
+      <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="nouveauProjet.titre">
+    </div>
+    <div class="form-group">
+      <label for="description">Description :</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="nouveauProjet.description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="categorie">Catégorie :</label>
+      <input type="text" class="form-control" id="categorie" name="categorie" [(ngModel)]="nouveauProjet.categorie">
+    </div>
+    <div class="form-group">
+      <label for="montantCible">Montant cible :</label>
+      <input type="number" class="form-control" id="montantCible" name="montantCible" [(ngModel)]="nouveauProjet.montantCible">
+    </div>
+    <div class="form-group">
+      <label for="dateDebut">Date de début :</label>
+      <input type="date" class="form-control" id="dateDebut" name="dateDebut" [(ngModel)]="nouveauProjet.dateDebut">
+    </div>
+    <div class="form-group">
+      <label for="dateFin">Date de fin :</label>
+      <input type="date" class="form-control" id="dateFin" name="dateFin" [(ngModel)]="nouveauProjet.dateFin">
+    </div>
+    <div class="form-group">
+      <label for="image">Image du projet :</label>
+      <input type="file" class="form-control-file" id="image" name="image" (change)="onFileSelected($event)">
+    </div>
+    <button class="btn btn-primary" (click)="ajouterProjet()">Ajouter le projet</button>-->
+  </form>
+</div>

@@ -14,4 +14,5 @@ export class ProfileComponent {
     {'productPhoto': './assets/images/product/bag.PNG', 'productName': 'bag', 'productDesc': 'bag du site investiny cadeau pour toi', 'productPrix': '10 dinar'},
   ];
 
+
 }
