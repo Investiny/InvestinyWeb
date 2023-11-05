@@ -11,6 +11,9 @@ import { CrudComponent } from './crud/crud.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { LanceprojectComponent } from './lanceproject/lanceproject.component';
 import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
+import { ProjetComponent } from './projet/projet.component';
+import { ProjetService } from './services/projet.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,17 @@ import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
     CrudComponent,
     AcceuilComponent,
     LanceprojectComponent,
-    UpdateprofilComponent
+    UpdateprofilComponent,
+    ProjetComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

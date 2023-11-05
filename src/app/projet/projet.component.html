@@ -1,0 +1,14 @@
+<ul class="list-group" style="width: 75%; margin: 0 auto;margin-top: 100px;">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of projets">
+      <li class="list-group-item">
+        <app-crud
+          [productPhoto]="product.imageDuProjet"
+          [productName]="product.titreDuProjet"
+          [productDesc]="product.description"
+          [productPrix]="product.montantActuel">
+        </app-crud>
+      </li>
+    </div>
+  </div>
+</ul>

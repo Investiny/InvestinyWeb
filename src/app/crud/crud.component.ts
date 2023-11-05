@@ -13,7 +13,8 @@ export class CrudComponent {
   @Input()
   productDesc! : string;
   @Input()
-  productPrix! : string;
+  productPrix! : number;
+  
   Index! : number;
   constructor(){}
 }
