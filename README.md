@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## dockerfile
+
+```
+  docker build -t investinyweb-version1 .
+  docker run -p 8082:80 investinyweb-version1
+```
