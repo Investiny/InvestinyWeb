@@ -29,6 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## dockerfile
 
 ```
-  docker build -t investinyweb-version1 .
-  docker run -p 8082:80 investinyweb-version1
+  docker build -t investinyweb-v1 .
+  docker run -p 8082:80 investinyweb-v1
+  docker tag investinyweb-v1:latest arijchetoui1/investinyweb-v1:latest
+  docker push arijchetoui1/investinyweb-v1:latest
+
 ```

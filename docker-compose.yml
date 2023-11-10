@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    image: nginx
+    container_name: investiny-web
+    ports:
+      - "8082:80"
+    volumes:
+      - ./dist/investiny-web:/usr/share/nginx/html
+    networks:
+      - investiny-network
+
+  db:
+    image: postgres
+    container_name: investiny-db
+    environment:
+      POSTGRES_DB: Investiny
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000
+    networks:
+      - investiny-network
+
+networks:
+  investiny-network:
+    driver: bridge
