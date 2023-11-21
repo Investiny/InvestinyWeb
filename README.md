@@ -35,3 +35,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   docker push arijchetoui1/investinyweb-v1:latest
 
 ```
+
+## Adjusting Database
+
+```
+CREATE SEQUENCE projets_seq START 1;
+
+ALTER TABLE projets ALTER COLUMN id SET DEFAULT nextval('projets_seq');
+
+ALTER SEQUENCE projets_seq INCREMENT BY 50;
+```

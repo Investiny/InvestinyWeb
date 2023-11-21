@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="signup-form">
+          <img src="/assets/images/logo.png" alt="Investiny Logo" >
+          <br>
+          <br>
+          <p class="terms">Les Champs indiqués par * sont obligatoires.</p>
+          <br>
+          <form (ngSubmit)="ajouterUtilisateur()">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nom complet *" id="nom" name="nom" [(ngModel)]="nouveauUtilisateur.nom">
+              </div>
+              <br>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Prenom *" id="prenom" name="prenom" [(ngModel)]="nouveauUtilisateur.prenom">
+              </div>
+              <br>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Adresse e-mail *" id="adresseemail" name="adresseemail" [(ngModel)]="nouveauUtilisateur.adresseemail">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Mot de passe *" id="motdepasse" name="motdepasse" [(ngModel)]="nouveauUtilisateur.motdepasse">
+              </div><br>
+              <div class="form-group">
+                <label class="form-control">Image De Profil : 
+                <input input type="file" class="form-control-file" id="imagedeprofil" name="imagedeprofil" [(ngModel)]="nouveauUtilisateur.imagedeprofil">
+            </label>
+              </div>
+              <br>
+            <br>
+            
+            <button class="btn btn-primary btn-block" type="submit">Creer un Compte</button>
+          </form>
+          <p class="terms">En vous inscrivant, vous acceptez nos Conditions générales. Pour en savoir plus sur la manière dont nous recueillons, utilisons et partageons vos données, consultez notre Politique d'utilisation des données et notre Politique d'utilisation des cookies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

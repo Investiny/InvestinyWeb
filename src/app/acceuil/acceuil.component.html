@@ -1,17 +1,22 @@
+
+
 <ul class="list-group" style="width: 75%; margin: 0 auto;">
   <div class="row">
-    <div class="col-md-4" *ngFor="let product of products">
+    <div class="col-md-4" *ngFor="let product of projets">
       <li class="list-group-item">
         <app-crud
-          [productPhoto]="product.productPhoto"
-          [productName]="product.productName"
-          [productDesc]="product.productDesc"
-          [productPrix]="product.productPrix">
+          [productPhoto]="'./assets/images/product/bag.PNG'"
+          [productName]="product.titreduprojet"
+          [productDesc]="product.description"
+          [productPrix]="product.montantcible">
         </app-crud>
       </li>
     </div>
   </div>
 </ul>
+
+
+
 <hr>
 <div class="card border-white mb-3" style="max-width: 1000px;width: 75%; margin: 0 auto;">
   <div class="row g-0">

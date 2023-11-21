@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ProjetService } from './services/projet.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { HttpClientModule } from '@angular/common/http';
     AcceuilComponent,
     LanceprojectComponent,
     UpdateprofilComponent,
-    ProjetComponent
+    ProjetComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
 
