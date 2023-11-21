@@ -1,42 +1,29 @@
-pipeline {
-    agent any
+node {
+    def mvnHome = tool 'maven-3.9.4'
+    def dockerImage
+    def dockerImageTag = "devopsexample${env.BUILD_NUMBER}"
 
-    environment {
-        DOCKER_IMAGE = 'investinyweb-v1'
+    stage('Clone Repo') {
+      git 'https://github.com/Investiny/InvestinyWeb.git&#39';
     }
 
-    stages {
-        stage('Install Node.js and npm') {
-            steps {
-                script {
-                    def nodejs = tool name: 'NODEJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-                    env.PATH = "${nodejs}/bin:${env.PATH}"
-                }
-            }
-        }
+    stage('Build Project') {
+      sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
+    }
 
-        stage('Checkout') {
-            steps {
-                script {
-                    checkout scm
-                }
-            }
-        }
+    stage('Initialize Docker'){
+      def dockerHome = tool 'MyDocker'
+      env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
 
-        stage('Docker Build') {
-            steps {
-                script {
-                    bat "docker build -t ${DOCKER_IMAGE} ."
-                }
-            }
-        }
+    stage('Build Docker Image') {
+      sh "docker -H tcp://192.168.163.128:2375 build -t devopsexample:${env.BUILD_NUMBER} ."
+    }
 
-        stage('Deploy') {
-            steps {
-                script {
-                    bat "docker run -p 8082:80 ${DOCKER_IMAGE}"
-                }
-            }
-        }
+    stage('Deploy Docker Image'){
+    echo "Docker Container devopsexample deleting..."
+    sh "docker -H tcp://192.168.163.128:2375 rm -f devopsexample"
+          echo "Docker Image Tag Name: ${dockerImageTag}"
+    sh "docker -H tcp://192.168.163.128:2375 run --name devopsexample -d -p 2222:2222 devopsexample:${env.BUILD_NUMBER}"
     }
 }
