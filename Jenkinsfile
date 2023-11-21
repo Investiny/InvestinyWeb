@@ -29,8 +29,8 @@ pipeline {
             steps {
                 script {
 
-                    bat "docker build -t investinyweb:${BUILD_ID} frontend/"
-                    bat "docker tag investinyweb:${BUILD_ID} arijchetoui1/investinyweb:${BUILD_ID}"
+                    bat "docker build -t investinyweb:${BUILD_ID} investinyweb/"
+                    bat "docker tag investinyweb:${BUILD_ID} arijchetoui1/investinyweb-v1:${BUILD_ID}"
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
 
-                    bat "docker run -d -p 8083:80 --name arijchetoui1/investinyweb${BUILD_ID} arijchetoui1/investinyweb:${BUILD_ID}"
+                    bat "docker run -d -p 8083:80 --name arijchetoui1/investinyweb-v1${BUILD_ID} arijchetoui1/investinyweb-v1:${BUILD_ID}"
                 }
             }
         }
