@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
 
-                    bat "docker build -t investinyweb:${BUILD_ID} investinyweb/"
+                    bat "docker build -t investinyweb:${BUILD_ID} ."
                     bat "docker tag investinyweb:${BUILD_ID} arijchetoui1/investinyweb-v1:${BUILD_ID}"
                 }
             }
