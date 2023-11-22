@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
 
-                    bat "docker run -d -p 8083:80 --name arijchetoui1/investinyweb-v1${BUILD_ID} arijchetoui1/investinyweb-v1:${BUILD_ID}"
+                    bat "docker run -d -p 8083:80 --name investinyweb:${BUILD_ID} arijchetoui1/investinyweb:${BUILD_ID}"
                 }
             }
         }
