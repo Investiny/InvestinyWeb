@@ -7,11 +7,11 @@ import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
 import { LanceprojectComponent } from './lanceproject/lanceproject.component';
 import { ProjetComponent } from './projet/projet.component';
 import { RegisterComponent } from './register/register.component';
-
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {path: '', component: AcceuilComponent, pathMatch:'full'},
   {path: 'connect', component: ConnexionComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent , canActivate: [AuthGuard]},
   {path: 'updateprofil', component: UpdateprofilComponent},
   {path: 'lanceprojet', component: LanceprojectComponent},
   {path: 'projet', component: ProjetComponent},

@@ -1,0 +1,8 @@
+.green-snackbar {
+    background-color: green;
+    color: white; /* Set the text color to white or any suitable color for better visibility */
+  }
+.red-snackbar {
+    background-color: red;
+    color: white; /* Set the text color to white or any suitable color for better visibility */
+}

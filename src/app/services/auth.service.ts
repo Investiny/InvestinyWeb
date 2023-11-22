@@ -1,33 +1,40 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {}
+  private loggedIn = false; // Maintain authentication state
 
-  login(adresseemail: string, motdepasse: string) {
-    this.http.post<any>('http://localhost:3002/api/v1/login', { adresseemail, motdepasse }, { observe: 'response' })
+  constructor(private http: HttpClient) {}
+
+  private baseUrl: string = 'http://localhost:3002/api/v1';
+
+  login(adresseemail: string, motdepasse: string): Observable<any> {
+    const loginData = { adresseemail, motdepasse };
+
+    return this.http.post<any>(`${this.baseUrl}/login`, loginData, { responseType: 'text' as 'json' })
       .pipe(
-        catchError((error: HttpErrorResponse) => {
-          console.error('Login failed:', error);
-          // Handle authentication failure (e.g., display error message)
-          this.router.navigate(['/']);
-          return throwError('Authentication failed');
+        map(response => {
+          try {
+            // Assuming your login response sets some token or flag upon successful login
+            this.loggedIn = true; // Set loggedIn to true upon successful login
+            return JSON.parse(response);
+          } catch (error) {
+            return response;
+          }
+        }),
+        catchError(error => {
+          // Handle error appropriately
+          return throwError(error);
         })
-      )
-      .subscribe((response: HttpResponse<any>) => {
-        // Check the HTTP response status code
-        if (response.status === 200) {
-          // Assuming backend returns a token or success response upon successful login
-            // Authentication successful, navigate to profile page
-            this.router.navigate(['/profile']);
-        }
-      });
+      );
+  }
+
+  isLoggedIn(): boolean {
+    return this.loggedIn; // Return the authentication state
   }
 }
-
