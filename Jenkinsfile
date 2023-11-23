@@ -35,14 +35,16 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
-            steps {
-                script {
+      stage('Run Docker Container') {
+                steps {
+                        script {
+                                def newContainerName = "investinycontainer_${BUILD_ID}"
 
-                    bat "docker run -d -p 8083:80 --name investinyweb_${BUILD_ID} arijchetoui1/investinyweb:${BUILD_ID}"
-                }
-            }
+                                 bat "docker run -d -p 8083:80 --name ${newContainerName} arijchetoui1/investinyweb:${BUILD_ID}"
         }
+    }
+}
+
     }
 }
 
