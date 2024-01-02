@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  private baseUrl: string = 'http://localhost:3002/api/v1';
+  private baseUrl: string = 'http://localhost:8081/api/v1';
 
   login(adresseemail: string, motdepasse: string): Observable<any> {
     const loginData = { adresseemail, motdepasse };

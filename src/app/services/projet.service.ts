@@ -7,7 +7,7 @@ import { Projet } from '../models/projet.model';
   providedIn: 'root'
 })
 export class ProjetService {
-  private baseUrl: string = 'http://localhost:3002/api/v1';
+  private baseUrl: string = 'http://localhost:8081/api/v1';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,11 @@ export class ProjetService {
 
   getProjetById(id: number): Observable<Projet> {
     return this.http.get<Projet>(`${this.baseUrl}/projets/${id}`);
+    
+  }
+
+  findProjetsByCreateur(id: number): Observable<Projet[]> {
+    return this.http.get<Projet[]>(`${this.baseUrl}/relatedprojets?createur=${id}`);
   }
 
   createProjet(projet: Projet): Observable<Projet> {

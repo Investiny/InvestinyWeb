@@ -10,25 +10,79 @@
     <div class="col-md-4" style="margin-left: 100px;">
       <div class="user-posts">
         <div class="row">
-          <h3>Nom de l'utilisateur</h3>
-          <p>@nom_utilisateur</p>
+          <h3>{{ user.prenom }}</h3><h3>{{ user.nom }}</h3>
+          <p>{{ user.adresseemail }}</p>
           <button type="button" class="btn btn-success" [routerLink]="['/updateprofil']">Modifier mes infos</button>
-
+        
       </div>
     </div>
   </div>
 </div>
-<ul class="list-group" style="width: 75%; margin: 0 auto;margin-top: 100px;">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let product of products">
-      <li class="list-group-item">
-        <app-crud
-          [productPhoto]="product.productPhoto"
-          [productName]="product.productName"
-          [productDesc]="product.productDesc"
-          [productPrix]="product.productPrix">
-        </app-crud>
-      </li>
+
+<div class="row">
+  <ul class="list-group" style="width: 75%; margin: 0 auto;margin-top: 100px;">
+    <div class="row">
+      <h2>Mes Projets / Produits</h2>
+      <div class="col-md-4" *ngFor="let product of relatedproducts">
+        <li class="list-group-item">
+
+          <div class="card" style="width: 18rem;">
+            <img [src]="'./assets/images/product/bag.PNG'" class="card-img-top">
+            <div class="card-body">
+              <h1 class="card-title">{{ product.titreduprojet }}</h1>
+              <h3 class="card-title">Donnations : {{ product.montantactuel }} / {{ product.montantcible }}</h3>
+              <h3 class="card-title">Status : {{ product.statut }}</h3>
+              <h3 class="card-title">Date de Fin : {{ product.datedefin }}</h3>
+            </div>
+          </div>
+
+        </li>
+      </div>
     </div>
-  </div>
-</ul>
+    
+  </ul>
+</div>
+
+<!-- <div class="row">
+  <ul class="list-group" style="width: 75%; margin: 0 auto;margin-top: 100px;">
+    <div class="row">
+      <h2>Mes Marchendies</h2>
+      <div class="col-md-4" *ngFor="let product of Boughtproducts">
+        <li class="list-group-item">
+
+          <app-crud
+          [productId]="product.id"
+          [productPhoto]="product.imageduprojet"
+          [productName]="product.titreduprojet"
+          [productDesc]="product.description"
+          [productPrix]="product.prix">
+        </app-crud>
+
+        </li>
+      </div>
+    </div>
+    
+  </ul>
+</div>
+<div class="row"> 
+  <ul class="list-group" style="width: 75%; margin: 0 auto;margin-top: 100px;">
+    <div class="row">
+      <h2>Mes Contributions</h2>
+      <div class="col-md-4" *ngFor="let product of contributedproducts">
+        <li class="list-group-item">
+
+          <app-crud
+          [productId]="product.id"
+          [productPhoto]="product.imageduprojet"
+          [productName]="product.titreduprojet"
+          [productDesc]="product.description"
+          [productPrix]="product.prix">
+        </app-crud>
+
+        </li>
+      </div>
+    </div>
+    
+  </ul>
+</div>
+-->

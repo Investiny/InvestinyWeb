@@ -1,39 +1,66 @@
-<nav class="navbar navbar-expand-lg ">
-  <div class="container">
-      <a class="navbar-brand" href="#"><img src="/assets/images/logo.png" alt="Logo" width="250"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Découvrir</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="lanceprojet">Lancer un projet</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="connect">Se connecter</a>
-              </li>
-          </ul>
-      </div>
-  </div>
-</nav>
-<hr>
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Art
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Design et technologie</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Jeux</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link " >Musique</a>
-  </li>
-</ul>
-<hr>
-<br><br>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="/assets/images/logo.png" alt="Logo" width="250"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Découvrir</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="lanceprojet">Lancer un projet</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLoggedIn">
+                  <a class="nav-link" routerLink="connect">Se connecter</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoggedIn">
+                  <a class="nav-link" routerLink="profile">Profile</a>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <li class="nav-item" *ngIf="isLoggedIn">
+                  <button type="button" class="btn btn-danger" (click)="logout()" style="float: right; position: absolute;">Logout</button>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <hr>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Art
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Design et technologie</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Jeux</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " >Musique</a>
+    </li>
+  </ul>
+  <hr>
+  <br><br>

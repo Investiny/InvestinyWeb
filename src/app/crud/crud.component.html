@@ -1,9 +1,19 @@
 <div class="card" style="width: 18rem;">
-  <img src="{{ productPhoto}}" class="card-img-top">
+  <img [src]="productPhoto" class="card-img-top">
   <div class="card-body">
+    <input class="hide-input" type="number" [(ngModel)]="MyproductId" />
+    <input class="hide-input" type="text" [(ngModel)]="MyTitre" />
+    <input class="hide-input" type="text" [(ngModel)]="MyDesc" />
+    <input class="hide-input" type="text" [(ngModel)]="Mycategorie" />
+    <input class="hide-input" type="text" [(ngModel)]="Mystatut" />
+    <input class="hide-input" type="number" [(ngModel)]="MymontC" />
+    <input class="hide-input" type="number" [(ngModel)]="MymontA" />
+    <input class="hide-input" type="text" [(ngModel)]="MyDateD" />
+    <input class="hide-input" type="text" [(ngModel)]="MyDateF" />
+    <input class="hide-input" type="number" [(ngModel)]="MyPrix" />
     <h5 class="card-title">{{ productName }}</h5>
-    <p class="card-text">{{productDesc}}</p>
-    <p class="card-text">{{productPrix}}</p>
-    <a href="#" class="btn btn-primary">Investih</a>
+    <p class="card-text">{{ productDesc }}</p>
+    <p class="card-text">{{ productPrix }}</p>
+    <button type="submit" href="#" class="btn btn-primary" (click)="saveInput()">Investih</button>
   </div>
 </div>

@@ -5,4 +5,5 @@ export class Utilisateur {
   adresseemail!: string;
   motdepasse!: string;
   imagedeprofil!: string;
+  
 }

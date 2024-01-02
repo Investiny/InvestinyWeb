@@ -8,11 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./lanceproject.component.css']
 })
 export class LanceprojectComponent {
-
+  
+  storedUserId!: string;
+  userIdAsNumber!: number;
   nouveauProjet: Projet = new Projet();
+
   projets: Projet[] = [];
 
   constructor(private projetService: ProjetService, private router: Router) { }
+  
+  ngOnInit() {
+    this.getProjets();
+    const userId = localStorage.getItem('userId');
+    this.storedUserId = userId ?? 'DefaultUserID';
+    this.userIdAsNumber = parseInt(this.storedUserId);
+    console.log('Stored User ID:', this.userIdAsNumber);
+    
+    // Set the default value for idutilisateurcreateur here
+    this.nouveauProjet.createur = this.userIdAsNumber;
+    this.nouveauProjet.montantactuel = 0;
+    this.nouveauProjet.statut = "en cours";
+  }
+  
 
   // Function to retrieve all projects
   getProjets() {
@@ -28,6 +45,8 @@ export class LanceprojectComponent {
   }
 
   ajouterProjet() {
+    this.nouveauProjet.statut="Funding";
+    this.nouveauProjet.montantactuel=0;
     this.projetService.createProjet(this.nouveauProjet).subscribe(
       response => {
         // Handle success response here
@@ -44,10 +63,6 @@ export class LanceprojectComponent {
         console.error('Error adding project:', error);
       }
     );
-  }
-
-  ngOnInit() {
-    this.getProjets();
   }
 
 }

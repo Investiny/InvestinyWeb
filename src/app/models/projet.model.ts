@@ -9,6 +9,7 @@ export class Projet {
   datededebut!: Date;
   datedefin!: Date;
   imageduprojet!: string;
-  createur!: string;
+  createur!: number;
+  prix!: number;
   
 }

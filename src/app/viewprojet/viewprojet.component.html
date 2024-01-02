@@ -1,0 +1,125 @@
+<div class="pd-wrap">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"><div class="pd-wrap">
+		<div class="container">
+	        <div class="heading-section">
+	            <h2>Details Projet</h2>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-6">
+						  	<img src="./assets/images/product/bag.PNG" />
+	        	</div>
+	        	<div class="col-md-6">
+	        		<div class="product-dtl">
+        				<div class="product-info">
+		        			<div class="product-name">{{ this.localTitre }}</div>
+		        			<div class="reviews-counter">
+								<div class="rate">
+								    <input type="radio" id="star5" name="rate" value="5" checked />
+								    <label for="star5" title="text">5 stars</label>
+								    <input type="radio" id="star4" name="rate" value="4" checked />
+								    <label for="star4" title="text">4 stars</label>
+								    <input type="radio" id="star3" name="rate" value="3" checked />
+								    <label for="star3" title="text">3 stars</label>
+								    <input type="radio" id="star2" name="rate" value="2" />
+								    <label for="star2" title="text">2 stars</label>
+								    <input type="radio" id="star1" name="rate" value="1" />
+								    <label for="star1" title="text">1 star</label>
+								  </div>
+								<span>3 Reviews</span>
+							</div>
+</div><br>
+	        			<div class="row">
+	        				<div class="col-md-6">
+	        					<label for="size">Catagorie</label>
+								<select id="size" name="size" class="form-control">
+									<option>{{this.localCategorie}}</option>
+								</select>
+	        				</div>
+	        				<div class="col-md-6">
+	        					<label for="color">Status</label>
+								<select id="color" name="color" class="form-control">
+									<option>{{ this.localStatut }}</option>
+								</select>
+	        				</div>
+	        			</div><br>
+						<div class="row">
+	        				<div class="col-md-6">
+	        					<label for="size">Date de Debut :</label>
+								<select id="size" name="size" class="form-control">
+									<option>{{this.localDateD}}</option>
+								</select>
+	        				</div>
+	        				<div class="col-md-6">
+	        					<label for="color">Date de Fin :</label>
+								<select id="color" name="color" class="form-control">
+									<option>{{ this.localDateF }}</option>
+								</select>
+	        				</div>
+	        			</div><br>
+						<div class="row">
+	        				<div class="col-md-6">
+	        					<label for="size">Montant Actuel :</label>
+								<select id="size" name="size" class="form-control">
+									<option>{{this.localMontA}}</option>
+								</select>
+	        				</div>
+	        				<div class="col-md-6">
+	        					<label for="color">Montant Cible :</label>
+								<select id="color" name="color" class="form-control">
+									<option>{{ this.localMontC }}</option>
+								</select>
+	        				</div>
+	        			</div>
+	        			<div class="product-price-discount"><br>
+	        				<label for="size">Contribuer </label><br><br>
+	        				<form (ngSubmit)="Contribuer()" >
+								<br>
+								<input type="number" class="numcartandpass" placeholder="Num Carte*" id="num_carte" name="num_carte" (input)="onInputValue1Change()" [(ngModel)]="newContributeur.num_carte">&nbsp;&nbsp;
+								<input type="password" class="numcartandpass" placeholder="Mot de passe*" ><br><br>
+							    &nbsp;&nbsp;&nbsp;<input type="input" class="small-number-input" name="quantity" value="1" [(ngModel)]="newContributeur.montantcontribution">
+								&nbsp;<span>TND</span>&nbsp;&nbsp;
+								<button href="#" class="round-black-btn"  type="submit">Contribuer</button>
+							</form><br><br>
+							<form (ngSubmit)="Acheter()">
+								<label for="size">Acheter </label>
+								<div class="product-price-discount">
+									<span>Prix: {{this.localPrix}} TND</span>&nbsp;&nbsp;&nbsp;
+									<input type="number" class="hide-input" placeholder="Num Carte*" id="num_carte" name="num_carte" (input)="onInputValue2Change()" [(ngModel)]="newPaiement.num_carte">
+									<input type="number" class="hide-input" placeholder="Nom complet *" id="montantpaiement" name="montantpaiement" [(ngModel)]="newPaiement.montantpaiement">
+									<button href="#" class="round-black-btn" type="submit">Acheter</button>
+								</div>
+								
+							</form>				
+	        			</div>
+						
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="product-info-tabs">
+		        <ul class="nav nav-tabs" id="myTab" role="tablist">
+				  	<li class="nav-item">
+				    	<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+				  	</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+				  	<div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+	        			{{ this.localDesc }}		  	
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</div>

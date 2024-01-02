@@ -1,55 +1,30 @@
 <div class="container">
   <h1>Mise à jour du profil</h1>
-  <form>
+  <form (ngSubmit)="modifierUtilisateur()">
    <div class="form-group">
       <label for="nom">Nom :</label>
-      <input type="text" class="form-control" id="nom" name="nom" >
+      <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="modifiedUtilisateur.nom">
     </div>
     <div class="form-group">
       <label for="prenom">Prénom :</label>
-      <input type="text" class="form-control" id="prenom" name="prenom" >
+      <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="modifiedUtilisateur.prenom">
     </div>
     <div class="form-group">
       <label for="email">Adresse E-mail :</label>
-      <input type="email" class="form-control" id="email" name="email" >
+      <input type="email" class="form-control" id="adresseemail" name="adresseemail" [(ngModel)]="modifiedUtilisateur.adresseemail">
     </div>
     <div class="form-group">
       <label for="motdepasse">Mot de passe :</label>
-      <input type="password" class="form-control" id="motdepasse" name="motdepasse" >
+      <input type="password" class="form-control" id="motdepasse" name="motdepasse" [(ngModel)]="modifiedUtilisateur.motdepasse">
     </div>
     <div class="form-group">
       <label for="imageprofil">Image de profil :</label>
-      <input type="file" class="form-control-file" id="imageprofil" name="imageprofil" >
+      <input type="file" class="form-control-file" id="imagedeprofil" name="imagedeprofil" [(ngModel)]="modifiedUtilisateur.imagedeprofil">
     </div>
     <div class="form-group">
       <img  alt="Aperçu de l'image de profil" class="img-thumbnail" style="max-width: 100px;">
     </div>
-    <button class="btn btn-primary" style="margin-top: 20px;">Enregistrer les modifications</button> &nbsp;&nbsp;&nbsp;
-    <button class="btn btn-danger"style="margin-top: 20px;" >Supprimer le compte</button>
-    <!--<div class="form-group">
-      <label for="nom">Nom :</label>
-      <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="user.nom">
-    </div>
-    <div class="form-group">
-      <label for="prenom">Prénom :</label>
-      <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="user.prenom">
-    </div>
-    <div class="form-group">
-      <label for="email">Adresse E-mail :</label>
-      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email">
-    </div>
-    <div class="form-group">
-      <label for="motdepasse">Mot de passe :</label>
-      <input type="password" class="form-control" id="motdepasse" name="motdepasse" [(ngModel)]="user.motdepasse">
-    </div>
-    <div class="form-group">
-      <label for="imageprofil">Image de profil :</label>
-      <input type="file" class="form-control-file" id="imageprofil" name="imageprofil" (change)="onFileSelected($event)">
-    </div>
-    <div class="form-group">
-      <img [src]="user.imageprofil" alt="Aperçu de l'image de profil" class="img-thumbnail" style="max-width: 100px;">
-    </div>
-    <button class="btn btn-primary" (click)="enregistrerModifications()">Enregistrer les modifications</button>
-    <button class="btn btn-danger" (click)="supprimerCompte()">Supprimer le compte</button>-->
+    <button class="btn btn-primary" style="margin-top: 20px;" type="submit">Enregistrer les modifications</button> &nbsp;&nbsp;&nbsp;
+
   </form>
 </div>

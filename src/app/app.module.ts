@@ -12,12 +12,11 @@ import { CrudComponent } from './crud/crud.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { LanceprojectComponent } from './lanceproject/lanceproject.component';
 import { UpdateprofilComponent } from './updateprofil/updateprofil.component';
-import { ProjetComponent } from './projet/projet.component';
 import { ProjetService } from './services/projet.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ViewprojetComponent } from './viewprojet/viewprojet.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AcceuilComponent,
     LanceprojectComponent,
     UpdateprofilComponent,
-    ProjetComponent,
-    RegisterComponent
+    RegisterComponent,
+    ViewprojetComponent
   ],
   imports: [
     BrowserModule,

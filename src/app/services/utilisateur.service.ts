@@ -7,7 +7,7 @@ import { Utilisateur } from '../models/utilisateur.model';
 })
 export class UtilisateurService {
 
-  private baseUrl: string = 'http://localhost:3002/api/v1';
+  private baseUrl: string = 'http://localhost:8081/api/v1';
 
   constructor(private http: HttpClient) { }
 
