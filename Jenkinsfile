@@ -40,7 +40,7 @@ pipeline {
                         script {
                                 def newContainerName = "investinycontainer_${BUILD_ID}"
 
-                                 bat "docker run -d -p 8000:80 --name ${newContainerName} arijchetoui1/investinyweb:${BUILD_ID}"
+                                 bat "docker run -d -p 7200:80 --name ${newContainerName} arijchetoui1/investinyweb:${BUILD_ID}"
         }
     }
 }
